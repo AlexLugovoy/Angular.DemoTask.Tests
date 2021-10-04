@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<div class="wrapper">
+    <div class="center-form">
+        <div class="login-form">
+            <form [formGroup]="formAuth" (ngSubmit)="onSubmit()">
+                <!--EMAIL INPUT-->
+                <div class="sidebar_form">
+                    <label for="name"> Email:  </label>
+                    <input class="form-control" id="email" type="text" formControlName="email">
+                    <span class="text-danger"
+                        *ngIf="(formAuth.controls.email.touched) && formAuth.controls.email.errors?.required">
+                        Email is required
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="formAuth.controls.email.touched && formAuth.controls.email.errors?.email">
+                        Enter a valid email address
+                    </span>
+                </div>
+                <!--PASSWORD INPUT-->
+                <div class="sidebar_form">
+                    <label for="name"> Password:  </label>
+                    <input class="form-control" id="password" type="password" formControlName="password">
+                </div>
+                <span class="text-danger"
+                        *ngIf="(formAuth.controls.password.touched) && formAuth.controls.password.errors?.required">
+                        Password is required
+                </span>
+                <br>
+                <!--SUBMIT-->
+                <button type="submit" [disabled]="!formAuth.valid"class="btn btn-primary"> Login </button>
+            </form>
+        </div>
+    </div>
+</div>

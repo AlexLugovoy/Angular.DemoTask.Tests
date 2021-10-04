@@ -1,0 +1,22 @@
+<app-header [login]="currentUser"></app-header>
+
+<div class="wrapper">
+    <div class="center-form">
+        <h2>Select test</h2>
+        <div *ngFor='let test of tests'> 
+            <h2>{{test.name}}</h2>
+            <button class="btn btn-dark" (click)="startTest(test.id)"> Start </button>
+        </div>
+
+        <div *ngIf="currentTest" class="login-form">
+            <br>
+            <h4> Desription of test:</h4>
+            <p>{{currentTest.description}}</p>
+            <br>
+            <mat-checkbox class="example-margin"
+                    [(ngModel)]="agreeCheck">I agree to start</mat-checkbox>
+            <br>
+            <button class="btn btn-success" (click)="proceedTest()" [disabled] = "!agreeCheck"> Proceed </button>
+        </div>
+    </div>
+</div>

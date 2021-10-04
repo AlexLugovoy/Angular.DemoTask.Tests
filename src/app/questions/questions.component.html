@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="wrapper">
+    <div class="center-form">
+        <div *ngIf="currentQuestion.body">
+            <h3>{{currentQuestion.body}}</h3>
+
+            <form [formGroup]="formQuestion" (ngSubmit)="onSubmit()">
+                <label for="answer"> Choise ur answer: </label>
+                <ng-select formControlName="answer" [(ngModel)]="selectAnswer">
+                    <ng-option *ngFor="let answer of answers" [value]="answer"> {{answer.body}} </ng-option>
+                </ng-select>
+                <br>
+                <button type="submit" *ngIf="selectAnswer"
+                            [disabled]="!formQuestion.valid"
+                            class="pull-left btn btn-primary"> Next </button>
+            </form>
+        </div>
+
+        <div *ngIf="responseResult">
+            <h3> You answered {{responseResult.countOfRightAnswers}} of {{responseResult.countOfAnswer}} questions correctly </h3>
+            <button class="pull-left btn btn-primary" (click)="clickBack()"> Back </button>
+        </div>
+    </div>
+</div>

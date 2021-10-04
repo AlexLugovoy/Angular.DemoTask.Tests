@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.ng-select.custom {
+    border:0px;
+    min-height: 3.5rem;
+    border-radius: 8px;
+}
+.ng-select.custom .ng-select-container  {            
+    min-height: 3.5rem;
+    border-radius: 8px;
+}
+
+
+.wrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.login-form{
+    width: 300px;
+    height: 200px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.center-form{
+    margin: 100px auto 0 auto;
+}
